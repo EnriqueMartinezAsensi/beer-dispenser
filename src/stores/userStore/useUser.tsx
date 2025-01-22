@@ -1,12 +1,12 @@
 import { create } from "zustand";
 
 type UserStateType = {
-  user: userLogin | undefined;
-  logIn: (user: userLogin) => boolean;
+  user?: UserLogin;
+  logIn: (user: UserLogin) => boolean;
   logOut: () => boolean;
 };
 
-const isUserValid = (user: userLogin) => {
+const isUserValid = (user: UserLogin) => {
   return user.username === "admin" && user.password === "admin";
 };
 
@@ -14,7 +14,7 @@ const useUser = create<UserStateType>(
   (set, get): UserStateType => ({
     user: undefined,
 
-    logIn: (user: userLogin) => {
+    logIn: (user: UserLogin) => {
       if (!isUserValid(user)) return false;
 
       set({ user });
