@@ -1,31 +1,22 @@
 import { create } from "zustand";
+import { logIn, logOut } from "../../api/apiUser";
 
 type UserStateType = {
-  user: userLogin | undefined;
-  logIn: (user: userLogin) => boolean;
-  logOut: () => boolean;
-};
-
-const isUserValid = (user: userLogin) => {
-  return user.username === "admin" && user.password === "admin";
+  user?: User;
+  logIn: (user: UserLogin) => void;
+  logOut: () => void;
 };
 
 const useUser = create<UserStateType>(
-  (set, get): UserStateType => ({
+  (set): UserStateType => ({
     user: undefined,
 
-    logIn: (user: userLogin) => {
-      if (!isUserValid(user)) return false;
-
-      set({ user });
-      return true;
+    logIn: (user: UserLogin) => {
+      logIn(user).then((user) => set({ user }));
     },
 
     logOut: () => {
-      if (!get().user) return false;
-
-      set({ user: undefined });
-      return true;
+      logOut().then(() => set({ user: undefined }));
     },
   })
 );
