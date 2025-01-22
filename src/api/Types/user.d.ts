@@ -3,7 +3,7 @@ declare type User = {
   userName: string;
 };
 
-declare type UserLogin = {
+declare type UserCredentials = {
   userName: string;
   password: string;
 };
