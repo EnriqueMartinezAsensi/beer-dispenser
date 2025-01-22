@@ -1,4 +1,9 @@
+declare type User = {
+  id: number;
+  userName: string;
+};
+
 declare type UserLogin = {
-  username: string;
+  userName: string;
   password: string;
 };
