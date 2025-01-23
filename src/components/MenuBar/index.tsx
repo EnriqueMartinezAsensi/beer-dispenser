@@ -10,7 +10,7 @@ import {
 } from "./MenuBar.styled";
 import BurgerIcon from "../ui/icons/BurgerIcon";
 import { useState } from "react";
-import { menuRoutesList } from "../../routes/routeList";
+import { menuRoutesList } from "../../routes/routesList";
 import useUser from "../../stores/userStore/useUser";
 
 const MenuBar = () => {

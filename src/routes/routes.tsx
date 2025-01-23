@@ -2,15 +2,16 @@ import { RouteObject } from "react-router-dom";
 
 //-----Free accsess elements-----
 import PageWrapper from "../components/PageWrapper";
-import ErrorPage from "../pages/errorPage";
-import Dispensers from "../pages/dispensers";
-import DispenserScreen from "../pages/dispenserScreen";
-import LogInPage from "../pages/logInPage";
-import ProtectedPage from "../pages/protectedPage";
+import ErrorPage from "../pages/ErrorPage";
+import Dispensers from "../pages/Dispensers";
+import DispenserScreen from "../pages/DispenserScreen";
+import LogInPage from "../pages/LogInPage";
+import ProtectedPage from "../pages/ProtectedPage";
 
 //------Restricted access elements-----
 import AdminPanel from "../pages/AdminPanel";
-import DispenserStats from "../pages/dispenserStats";
+import DispenserStats from "../pages/DispenserStats";
+
 
 const routes: RouteObject[] = [
   {

@@ -1,3 +1,4 @@
+
 export const logIn = async (user: { userName: string; password: string }): Promise<User> => {
   const artificialDelay = Math.round(Math.random() * 1000); // Simulate network delay
 
