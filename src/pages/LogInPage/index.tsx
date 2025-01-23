@@ -7,8 +7,8 @@ import { useState } from "react";
 
 const LogInPage = () => {
   const { user, logIn } = useUser();
-  const [email, setEmail] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
+  const [email, setEmail] = useState<string>("admin");
+  const [password, setPassword] = useState<string>("admin");
 
   const submit = () => {
     const user = {

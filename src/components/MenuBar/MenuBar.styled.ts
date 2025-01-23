@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 type MenuListProps = {
@@ -22,7 +21,7 @@ export const StickyBar = styled.div`
 export const MenuHolder = styled.div`
   display: flex;
   flex-flow: row;
-  justify-content: space-around;
+  justify-content: start;
   align-items: center;
   max-width: 1027px;
   min-width: 660px;
@@ -44,17 +43,6 @@ export const MenuList = styled.ul`
   }
 `;
 
-export const MenuItem = styled.li`
-  padding: 10px;
-`;
-
-export const MenuLink = styled(Link)`
-  color: black;
-  text-decoration: none;
-  font-size: ${({ theme }) => theme.text.navigationBar.fontSize};
-  font-family: ${({ theme }) => theme.text.navigationBar.fontFamily};
-  font-weight: ${({ theme }) => theme.text.navigationBar.fontWeight};
-`;
 export const MenuLogo = styled.img`
   display: block;
   height: 50%;
