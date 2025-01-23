@@ -5,7 +5,7 @@ export const getAllDispensers = async () => {
 };
 
 export const createDispenser = async (flow: number) => {
-  return api.post<BasicDispenser>(`/dispenser`, { flow }).then(({ data }) => data);
+  return api.post<BasicDispenser>(`/dispenser`, { flow_volume: flow }).then(({ data }) => data);
 };
 
 export const manageDispenser = async (status: DispenserStatus, id: string) => {

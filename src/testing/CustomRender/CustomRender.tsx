@@ -8,8 +8,9 @@ import themeMUI from "../../theme/MUI/MainTheme";
 const customRender = (ui: React.ReactElement, options = {}) => {
   return render(
     <MemoryRouter>
-      <ThemeProvider theme={theme}>{ui}</ThemeProvider>
-      <ThemeProviderMUI theme={themeMUI}></ThemeProviderMUI>
+      <ThemeProvider theme={theme}>
+        <ThemeProviderMUI theme={themeMUI}>{ui}</ThemeProviderMUI>
+      </ThemeProvider>
     </MemoryRouter>,
     options
   );

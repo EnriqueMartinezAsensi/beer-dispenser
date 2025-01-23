@@ -6,22 +6,32 @@ type InputProps = {
   inputName: string;
   type?: React.HTMLInputTypeAttribute;
   error?: boolean;
-  changeEvent: React.ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement>;
+  min?: number;
+  max?: number;
+  step?: number;
+  onChange: React.ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement>;
 };
 
-const Input = ({ label, value, inputName, type, error, changeEvent }: InputProps) => {
+const Input = ({ label, value, inputName, type, error, min, max, step, onChange }: InputProps) => {
   return (
     <TextField
-      margin="normal"
+      margin='normal'
       required
       fullWidth
       label={label}
       name={inputName}
       autoFocus
       value={value}
-      onChange={changeEvent}
+      onChange={onChange}
       type={type}
       error={error}
+      slotProps={{
+        htmlInput: {
+          max: max,
+          min: min,
+          step: step,
+        },
+      }}
     />
   );
 };
