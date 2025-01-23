@@ -11,13 +11,7 @@ const MenuItemList = ({ user, logOut: logout }: MenuItemListProps) => {
       <MenuItem>
         <MenuLink to='/'>Beer Taps</MenuLink>
       </MenuItem>
-      <MenuItem>
-        {user ? (
-          <MenuLink to='/Admin' onClick={logout}>
-            Administration
-          </MenuLink>
-        ) : null}
-      </MenuItem>
+      <MenuItem>{user ? <MenuLink to='/admin'>Administration</MenuLink> : null}</MenuItem>
       <MenuItem>
         {user ? (
           <MenuLink to='' onClick={logout}>
