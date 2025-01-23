@@ -9,7 +9,7 @@ export const createDispenser = async (flow: number) => {
 };
 
 export const manageDispenser = async (status: DispenserStatus, id: string) => {
-  return api.put<DispenserStatus>(`/dispenser/${id}`, { status }).then(({ data }) => data);
+  return api.put<DispenserStatus>(`/dispenser/${id}`, status).then(({ data }) => data);
 };
 
 export const getDispenserUsage = async (id: string) => {

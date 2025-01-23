@@ -12,6 +12,7 @@ import ProtectedPage from "../pages/ProtectedPage";
 import AdminPanel from "../pages/AdminPanel";
 import DispenserStats from "../pages/DispenserStats";
 
+
 const routes: RouteObject[] = [
   {
     path: "/",
