@@ -3,7 +3,7 @@ import { logIn, logOut } from "../../api/apiUser";
 
 type UserStateType = {
   user?: User;
-  logIn: (user: UserLogin) => void;
+  logIn: (user: UserCredentials) => void;
   logOut: () => void;
 };
 
@@ -11,7 +11,7 @@ const useUser = create<UserStateType>(
   (set): UserStateType => ({
     user: undefined,
 
-    logIn: (user: UserLogin) => {
+    logIn: (user: UserCredentials) => {
       logIn(user).then((user) => set({ user }));
     },
 

@@ -1,6 +1,6 @@
 import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider } from "@mui/material/styles";
-import theme from "../theme/MainTheme";
+import theme from "../theme/styledTheme/theme";
 
 import AppRoutes from "./appRoutes";
 
