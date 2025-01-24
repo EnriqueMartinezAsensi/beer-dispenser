@@ -1,17 +1,8 @@
-import {
-  MenuList,
-  MenuHolder,
-  MenuItem,
-  StickyBar,
-  BurgerMenu,
-  VerticalMenuHolder,
-  MemuListVertical,
-  MenuLink,
-} from "./MenuBar.styled";
+import { MenuList, MenuHolder, StickyBar, BurgerMenu, VerticalMenuHolder, MemuListVertical } from "./MenuBar.styled";
 import BurgerIcon from "../ui/icons/BurgerIcon";
 import { useState } from "react";
-import { menuRoutesList } from "../../routes/routesList";
 import useUser from "../../stores/userStore/useUser";
+import MenuItemList from "./MenuItemList";
 
 const MenuBar = () => {
   const [isMenuActive, setIsMenuActive] = useState<boolean>(false);
@@ -24,28 +15,11 @@ const MenuBar = () => {
           <BurgerIcon size='60' active={isMenuActive}></BurgerIcon>
         </BurgerMenu>
         <MenuList>
-          {menuRoutesList.map((route) => (
-            <MenuItem key={route.name}>
-              <MenuLink to={route.route}>{route.name}</MenuLink>
-            </MenuItem>
-          ))}
-          <MenuItem>
-            {user ? (
-              <MenuLink to='' onClick={logOut}>
-                Log Out
-              </MenuLink>
-            ) : (
-              <MenuLink to='/login'>Log In</MenuLink>
-            )}
-          </MenuItem>
+          <MenuItemList user={user} logOut={logOut} />
         </MenuList>
         <VerticalMenuHolder $active={isMenuActive}>
           <MemuListVertical $active={isMenuActive}>
-            {menuRoutesList.map((route) => (
-              <MenuItem key={route.name}>
-                <MenuLink to={route.route}>{route.name}</MenuLink>
-              </MenuItem>
-            ))}
+            <MenuItemList user={user} logOut={logOut} />
           </MemuListVertical>
         </VerticalMenuHolder>
       </MenuHolder>

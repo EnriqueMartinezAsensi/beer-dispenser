@@ -1,5 +1,5 @@
 import { createTheme } from "@mui/material/styles";
-import { red } from "@mui/material/colors";
+import { orange } from "@mui/material/colors";
 
 // A custom theme for this app
 const theme = createTheme({
@@ -9,13 +9,13 @@ const theme = createTheme({
   },
   palette: {
     primary: {
-      main: "#556cd6",
+      main: "#DC0019",
     },
     secondary: {
-      main: "#19857b",
+      main: "#00DCC3",
     },
     error: {
-      main: red.A400,
+      main: orange.A400,
     },
   },
   shape: {

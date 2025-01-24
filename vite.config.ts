@@ -9,5 +9,12 @@ export default defineConfig({
     globals: true,
     environment: "jsdom",
     setupFiles: "./vitest.setup.ts",
+    coverage: {
+      provider: "v8",
+      reporter: ["text"],
+      all: true,
+      include: ["src/**/*.ts", "src/**/*.tsx"],
+      exclude: ["node_modules", "tests"],
+    },
   },
 });

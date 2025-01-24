@@ -1,30 +1,51 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { getDispenserUsage } from "../../api/apiDispenser";
+import TableLine from "../../components/TableLine";
+import { DispenserStatsTittle, GlobalInfoWrapper, StyledStatsTable } from "./DispenserStats.styled";
 
 const DispenserStats = () => {
   const { id } = useParams();
   const [dispenserUsage, setDispenserUsage] = useState<DispenserUsage>();
 
+  const timeUsed = (start: string, end: string) => {
+    return Math.abs(new Date(end).getMilliseconds() - new Date(start).getMilliseconds());
+  };
+
   useEffect(() => {
     if (id) getDispenserUsage(id).then((data) => setDispenserUsage(data));
-  }, []);
-
-  console.log(dispenserUsage?.usages);
+  }, [id]);
 
   return (
     <>
-      <div>STATISTICS SCREEN: {id} </div>
-      <ul>
-        Services{dispenserUsage?.usages.length}
-        {dispenserUsage?.usages.map((usage) => (
-          <li key={`${id}${usage.opened_at}`}>
-            <div>{usage.opened_at}</div>
-            <div>{usage.closed_at}</div>
-            <div>{usage.total_spent}</div>
-          </li>
-        ))}
-      </ul>
+      <div>
+        <DispenserStatsTittle>STATISTICS SCREEN: {id} </DispenserStatsTittle>
+        <GlobalInfoWrapper>
+          <div>Services: {dispenserUsage?.usages.length}</div>
+          <div>Total earnings: {dispenserUsage?.amount}</div>
+        </GlobalInfoWrapper>
+      </div>
+      <StyledStatsTable>
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Time Used</th>
+            <th>Amount Sold</th>
+          </tr>
+        </thead>
+        <tbody>
+          {dispenserUsage?.usages.map((usage, index) => (
+            <TableLine
+              key={`${id}${usage.opened_at}`}
+              elements={[
+                index.toString(),
+                timeUsed(usage.opened_at, usage.closed_at).toString(),
+                usage.total_spent.toString(),
+              ]}
+            />
+          ))}
+        </tbody>
+      </StyledStatsTable>
     </>
   );
 };

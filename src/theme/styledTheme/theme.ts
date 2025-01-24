@@ -19,19 +19,19 @@ const theme = {
       text: `#242424`,
     },
     button: {
-      normal:{
+      normal: {
         background: `#F4CE14`,
         text: `black`,
       },
-      click:{
+      click: {
         background: `#495E57`,
         text: `#F5F5F5`,
       },
       disabled: {
         background: `#EE9972`,
         text: `black`,
-      }
-    }
+      },
+    },
   },
   text: {
     title: {
@@ -63,7 +63,7 @@ const theme = {
   transitions: {
     normal: `0.3`,
   },
-  media:{
+  media: {
     first: 1020,
   },
 };
