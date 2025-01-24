@@ -1,4 +1,4 @@
-import { StyledTableLine } from "./TableLine.styled";
+import { StyledTableLine, TableData } from "./TableLine.styled";
 
 type TableLineProps = {
   elements: string[];
@@ -9,7 +9,7 @@ const TableLine = ({ elements, onClick }: TableLineProps) => {
   return (
     <StyledTableLine onClick={onClick}>
       {elements.map((element, index) => (
-        <td key={`${index}${element}`}>{element}</td>
+        <TableData key={`${index}${element}`}>{element}</TableData>
       ))}
     </StyledTableLine>
   );

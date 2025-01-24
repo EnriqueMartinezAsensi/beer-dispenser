@@ -2,10 +2,14 @@ import styled from "styled-components";
 
 export const StyledTableLine = styled.tr`
   text-align: center;
-  padding: 5px 10px;
-  border-bottom: 1px solid #000;
+  border-top: 1px solid ${({ theme }) => theme.colors.primary.text};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.primary.text};
   cursor: pointer;
   &:hover {
-    background-color: #f0f0f0;
+    background-color: ${({ theme }) => theme.colors.secondary.main};
   }
+`;
+
+export const TableData = styled.td`
+  padding: 1rem;
 `;

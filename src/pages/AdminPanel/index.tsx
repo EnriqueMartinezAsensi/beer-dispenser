@@ -23,38 +23,36 @@ const AdminPanel = () => {
     getData();
   }, []);
 
-  if (dispensers.length > 0)
-    return (
-      <>
-        <DispenserAdder
-          flow={flow}
-          onFlowChange={(value) => setFlow(value)}
-          onClick={() => {
-            handleAddDispenser();
-          }}
-        />
-        <StyledAdminTable>
-          <thead>
-            <tr>
-              <th>Id</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            {dispensers.map((item) => {
-              return (
-                <TableLine
-                  key={item.id}
-                  elements={[item.id, item.status]}
-                  onClick={() => navigate(`/admin/${item.id}`)}
-                ></TableLine>
-              );
-            })}
-          </tbody>
-        </StyledAdminTable>
-      </>
-    );
-  return <div>No tabs were found on the database.</div>;
+  return (
+    <>
+      <DispenserAdder
+        flow={flow}
+        onFlowChange={(value) => setFlow(value)}
+        onClick={() => {
+          handleAddDispenser();
+        }}
+      />
+      <StyledAdminTable>
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {dispensers.map((item) => {
+            return (
+              <TableLine
+                key={item.id}
+                elements={[item.id, item.status]}
+                onClick={() => navigate(`/admin/${item.id}`)}
+              ></TableLine>
+            );
+          })}
+        </tbody>
+      </StyledAdminTable>
+    </>
+  );
 };
 
 export default AdminPanel;

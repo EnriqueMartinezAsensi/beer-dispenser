@@ -3,6 +3,7 @@ import BurgerIcon from "../ui/icons/BurgerIcon";
 import { useState } from "react";
 import useUser from "../../stores/userStore/useUser";
 import MenuItemList from "./MenuItemList";
+import BeerIcon from "../ui/icons/BeerIcon";
 
 const MenuBar = () => {
   const [isMenuActive, setIsMenuActive] = useState<boolean>(false);
@@ -11,6 +12,7 @@ const MenuBar = () => {
   return (
     <StickyBar>
       <MenuHolder>
+        <BeerIcon size='60' />
         <BurgerMenu onClick={() => setIsMenuActive(!isMenuActive)}>
           <BurgerIcon size='60' active={isMenuActive}></BurgerIcon>
         </BurgerMenu>

@@ -16,6 +16,7 @@ const Input = ({ label, value, inputName, type, error, min, max, step, onChange 
   return (
     <TextField
       margin='normal'
+      sx={{ mt: 2, mb: 2 }}
       required
       fullWidth
       label={label}

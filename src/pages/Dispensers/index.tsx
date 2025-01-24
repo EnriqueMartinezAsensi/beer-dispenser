@@ -27,7 +27,7 @@ const Dispensers = () => {
         </tbody>
       </DispenserTable>
     );
-  return <>EMPTY</>;
+  return <>There are no dispensers yet!</>;
 };
 
 export default Dispensers;
