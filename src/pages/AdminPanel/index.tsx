@@ -3,6 +3,7 @@ import { useNavigate } from "react-router";
 import { getAllDispensers, createDispenser } from "../../api/apiDispenser";
 import TableLine from "../../components/TableLine";
 import DispenserAdder from "./DispenserAdder";
+import { StyledAdminTable } from "./AdminPanel.styled";
 
 const AdminPanel = () => {
   const [dispensers, setDispensers] = useState<Dispenser[]>([]);
@@ -32,7 +33,7 @@ const AdminPanel = () => {
             handleAddDispenser();
           }}
         />
-        <table>
+        <StyledAdminTable>
           <thead>
             <tr>
               <th>Id</th>
@@ -50,7 +51,7 @@ const AdminPanel = () => {
               );
             })}
           </tbody>
-        </table>
+        </StyledAdminTable>
       </>
     );
   return <div>No tabs were found on the database.</div>;
