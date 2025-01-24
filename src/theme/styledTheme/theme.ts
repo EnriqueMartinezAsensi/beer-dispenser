@@ -1,4 +1,3 @@
-const markaziText = "MarkaziText, Cambria, Cochin, Georgia, Times, 'Times New Roman', serif";
 const karla = "Karla, source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace";
 
 const theme = {
@@ -11,35 +10,35 @@ const theme = {
       transparent: `transparent`,
     },
     primary: {
-      main: `#495E57`,
+      main: `#feca0a`,
       text: `white`,
     },
     secondary: {
-      main: `rgba(255, 255, 255, 0.87)`,
+      main: `#BDBDBD`,
       text: `#242424`,
     },
     button: {
       normal: {
-        background: `#F4CE14`,
+        background: `#feca0a`,
         text: `black`,
       },
       click: {
-        background: `#495E57`,
+        background: `#BDBDBD`,
         text: `#F5F5F5`,
       },
       disabled: {
-        background: `#EE9972`,
+        background: `#ef5350`,
         text: `black`,
       },
     },
   },
   text: {
     title: {
-      fontFamily: markaziText,
+      fontFamily: karla,
       fontSize: "60pt",
     },
     subtitle: {
-      fontFamily: markaziText,
+      fontFamily: karla,
       fontSize: "40pt",
     },
     normal: {

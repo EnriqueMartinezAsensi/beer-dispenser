@@ -11,13 +11,13 @@ const GlobalStyles = createGlobalStyle`
 }
 
 :root {
-  font-family: ${({theme}) => theme.text.normal.fontFamily};
-  font-size: ${({theme}) => theme.text.normal.fontSize};
+  font-family: ${({ theme }) => theme.text.normal.fontFamily};
+  font-size: ${({ theme }) => theme.text.normal.fontSize};
   line-height: 1.5;
 
   color-scheme: light dark;
   color: #242424;
-  background-color: rgba(255, 255, 255, 0.87);
+  background-color: #E2E2E2;
 
   
   font-synthesis: none;
@@ -38,6 +38,6 @@ body {
   width: 100%;
   margin: 0 auto;
 }
-`
+`;
 
 export default GlobalStyles;

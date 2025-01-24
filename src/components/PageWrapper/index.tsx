@@ -1,13 +1,14 @@
 import { Outlet, ScrollRestoration } from "react-router";
 import MenuBar from "../MenuBar";
+import { PageWrapperContainer } from "./PageWrapper.styled";
 
 const PageWrapper = () => {
   return (
-    <div>
+    <PageWrapperContainer>
       <ScrollRestoration />
       <MenuBar />
       <Outlet />
-    </div>
+    </PageWrapperContainer>
   );
 };
 

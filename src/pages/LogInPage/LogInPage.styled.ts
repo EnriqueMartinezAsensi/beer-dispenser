@@ -16,3 +16,11 @@ export const LoginForm = styled.form`
   gap: 8px;
   align-items: flex-start;
 `;
+
+export const LoginCredentials = styled.p`
+  margin: 0.5rem auto;
+  text-align: center;
+  font-size: 1.2rem;
+  font-style: italic;
+  color: ${({ theme }) => theme.colors.primary};
+`;
