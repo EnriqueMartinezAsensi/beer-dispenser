@@ -16,9 +16,7 @@ const GlobalStyles = createGlobalStyle`
   line-height: 1.5;
 
   color-scheme: light dark;
-  color: #242424;
-  background-color: #E2E2E2;
-
+  color: #333333;
   
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -37,6 +35,8 @@ body {
 #root {
   width: 100%;
   margin: 0 auto;
+  height: 100vh;
+  background-color: #E2E2E2;
 }
 `;
 

@@ -12,10 +12,11 @@ export const StickyBar = styled.div`
   background-color: ${({ theme }) => theme.colors.common.white};
   position: sticky;
   overflow: hidden;
-  z-index: 1;
+  z-index: 2;
   width: 100%;
   height: 80px;
   top: 0px;
+  border-bottom: 5px solid ${({ theme }) => theme.colors.primary.main};
 `;
 
 export const MenuHolder = styled.div`
@@ -23,7 +24,7 @@ export const MenuHolder = styled.div`
   flex-flow: row;
   justify-content: start;
   align-items: center;
-  max-width: 1027px;
+  max-width: 80%;
   min-width: 660px;
   height: 100%;
   margin: auto;

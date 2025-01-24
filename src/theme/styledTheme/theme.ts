@@ -3,24 +3,23 @@ const karla = "Karla, source-code-pro, Menlo, Monaco, Consolas, 'Courier New', m
 const theme = {
   colors: {
     common: {
-      black: `black`,
+      black: `#333333`,
       grey: `lightgrey`,
-      darkergreen: `#333333`,
       white: `white`,
       transparent: `transparent`,
     },
     primary: {
       main: `#feca0a`,
-      text: `white`,
+      text: `#333333`,
     },
     secondary: {
-      main: `#BDBDBD`,
-      text: `#242424`,
+      main: `#E2E2E2`,
+      text: `#333333`,
     },
     button: {
       normal: {
         background: `#feca0a`,
-        text: `black`,
+        text: `#333333`,
       },
       click: {
         background: `#BDBDBD`,
@@ -28,7 +27,7 @@ const theme = {
       },
       disabled: {
         background: `#ef5350`,
-        text: `black`,
+        text: `#333333`,
       },
     },
   },
@@ -52,12 +51,12 @@ const theme = {
     },
     navigationBar: {
       fontFamily: karla,
-      fontSize: "14pt",
+      fontSize: "24pt",
       fontWeight: 600,
     },
   },
   radiuses: {
-    medium: `16`,
+    medium: `12`,
   },
   transitions: {
     normal: `0.3`,

@@ -3,14 +3,17 @@ import { ThemeProvider } from "@mui/material/styles";
 import theme from "../theme/MUI/MainTheme";
 import AppRoutes from "./appRoutes";
 import CustomThemeProvider from "../providers/CustomThemeProvider";
+import GlobalStyles from "../theme/styledTheme/GlobalStyles";
 
 export default function SignInSide() {
   return (
-    <ThemeProvider theme={theme}>
-      <CustomThemeProvider>
+    <CustomThemeProvider>
+      <GlobalStyles />
+      <ThemeProvider theme={theme}>
         <CssBaseline />
         <AppRoutes />
-      </CustomThemeProvider>
-    </ThemeProvider>
+      </ThemeProvider>
+      <GlobalStyles />
+    </CustomThemeProvider>
   );
 }
