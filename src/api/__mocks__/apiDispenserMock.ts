@@ -5,3 +5,15 @@ export const GET_ALL_DISPENSERS_MOCK: Dispenser[] = [
 ];
 
 export const CREATE_DISPENSER_MOCK: BasicDispenser = { id: "121b67ad-6367-408d-a25b-0245e6510e6f", flow_volume: 0.05 };
+
+export const GET_DISPENSER_USSAGE_MOCK: DispenserUsage = {
+  amount: 24.5,
+  usages: [
+    {
+      opened_at: "2025-01-22T18:11:45.991000Z",
+      closed_at: "2025-01-22T18:11:48.335000Z",
+      flow_volume: 0.08,
+      total_spent: 24.5,
+    },
+  ],
+};

@@ -5,9 +5,9 @@ import { MemoryRouter } from "react-router-dom";
 import theme from "../../theme/styledTheme/theme";
 import themeMUI from "../../theme/MUI/MainTheme";
 
-const customRender = (ui: React.ReactElement, options = {}) => {
+const customRender = (ui: React.ReactElement, { route = "/", ...options } = {}) => {
   return render(
-    <MemoryRouter>
+    <MemoryRouter initialEntries={[route]}>
       <ThemeProvider theme={theme}>
         <ThemeProviderMUI theme={themeMUI}>{ui}</ThemeProviderMUI>
       </ThemeProvider>
