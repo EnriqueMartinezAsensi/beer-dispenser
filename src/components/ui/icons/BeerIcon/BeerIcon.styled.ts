@@ -7,6 +7,7 @@ type BeerIconProps = {
 export const BeerIconStyled = styled.svg<BeerIconProps>`
   width: ${({ size }) => size}px;
   height: ${({ size }) => size}px;
+  margin: 0 0.5rem;
 `;
 
 export const Glass = styled.path`

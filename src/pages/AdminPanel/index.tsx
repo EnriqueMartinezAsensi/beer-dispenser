@@ -46,6 +46,7 @@ const AdminPanel = () => {
                 key={item.id}
                 elements={[item.id, item.status]}
                 onClick={() => navigate(`/admin/${item.id}`)}
+                isClickable={true}
               ></TableLine>
             );
           })}

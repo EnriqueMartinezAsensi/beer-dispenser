@@ -17,15 +17,15 @@ const MenuBar = () => {
         <BurgerMenu onClick={() => setIsMenuActive(!isMenuActive)}>
           <BurgerIcon size='60' active={isMenuActive}></BurgerIcon>
         </BurgerMenu>
-        <BeerIcon size='50' />
-        <MenuList>
-          <MenuItemList user={user} logOut={logOut} onClick={closeMenu} />
-        </MenuList>
         <VerticalMenuHolder $active={isMenuActive}>
           <MemuListVertical $active={isMenuActive}>
             <MenuItemList user={user} logOut={logOut} onClick={closeMenu} />
           </MemuListVertical>
         </VerticalMenuHolder>
+        <BeerIcon size='50' />
+        <MenuList>
+          <MenuItemList user={user} logOut={logOut} onClick={closeMenu} />
+        </MenuList>
       </MenuHolder>
     </StickyBar>
   );

@@ -22,7 +22,14 @@ const Dispensers = () => {
         </thead>
         <tbody>
           {dispensers.map((item) => {
-            return <TableLine key={item.id} elements={[item.id]} onClick={() => navigate(`/${item.id}`)}></TableLine>;
+            return (
+              <TableLine
+                key={item.id}
+                elements={[item.id]}
+                onClick={() => navigate(`/${item.id}`)}
+                isClickable={true}
+              ></TableLine>
+            );
           })}
         </tbody>
       </DispenserTable>

@@ -42,6 +42,7 @@ const DispenserStats = () => {
                 timeUsed(usage.opened_at, usage.closed_at).toString(),
                 usage.total_spent.toString(),
               ]}
+              isClickable={false}
             />
           ))}
         </tbody>

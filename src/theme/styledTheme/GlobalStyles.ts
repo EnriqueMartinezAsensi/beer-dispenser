@@ -30,13 +30,14 @@ body {
   place-items: start;
   min-width: 350px;
   min-height: 100vh;
+  color: #333333;
 }
 
 #root {
   width: 100%;
   margin: 0 auto;
   height: 100vh;
-  background-color: #E2E2E2;
+  background-color: #eee;
 }
 `;
 

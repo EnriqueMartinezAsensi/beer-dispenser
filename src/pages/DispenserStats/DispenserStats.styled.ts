@@ -10,6 +10,10 @@ export const GlobalInfoWrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  @media (max-width: ${({ theme }) => theme.media.first}px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 export const DispenserStatsTittle = styled.h3`

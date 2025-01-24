@@ -3,6 +3,9 @@ import styled from "styled-components";
 
 export const MenuItem = styled.li`
   padding: 1rem;
+  @media (max-width: ${({ theme }) => theme.media.first}px) {
+    padding: 0.2rem;
+  }
 `;
 
 export const MenuLink = styled(Link)`

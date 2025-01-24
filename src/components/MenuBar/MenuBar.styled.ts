@@ -22,7 +22,7 @@ export const StickyBar = styled.div`
 export const MenuHolder = styled.div`
   display: flex;
   flex-flow: row;
-  justify-content: start;
+  justify-content: space-between;
   align-items: center;
   max-width: 80%;
   min-width: 660px;
@@ -31,7 +31,9 @@ export const MenuHolder = styled.div`
   z-index: 0;
   @media (max-width: ${({ theme }) => theme.media.first}px) {
     min-width: 0;
+    max-width: 100%;
     width: 100%;
+    justify-content: space-between;
   }
 `;
 export const MenuList = styled.ul`

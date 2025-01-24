@@ -12,6 +12,9 @@ export const DispenserFormWrapper = styled.div`
   flex-direction: row;
   gap: 10px;
   margin: 10px 30px 10px 30px;
+  @media (max-width: ${({ theme }) => theme.media.first}px) {
+    flex-direction: column;
+  }
 `;
 
 export const DispenserTitle = styled.h1`
