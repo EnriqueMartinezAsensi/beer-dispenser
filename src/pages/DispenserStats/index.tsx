@@ -18,20 +18,29 @@ const DispenserStats = () => {
   return (
     <>
       <div>STATISTICS SCREEN: {id} </div>
-      <ul>
-        Services{dispenserUsage?.usages.length}
-        {dispenserUsage?.usages.map((usage, index) => (
-          <TableLine
-            key={`${id}${usage.opened_at}`}
-            elements={[
-              index.toString(),
-              time(usage.opened_at, usage.closed_at).toString(),
-              usage.total_spent.toString(),
-            ]}
-            onClick={() => {}}
-          />
-        ))}
-      </ul>
+      Services{dispenserUsage?.usages.length}
+      <table>
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Time Used</th>
+            <th>Amount Sold</th>
+          </tr>
+        </thead>
+        <tbody>
+          {dispenserUsage?.usages.map((usage, index) => (
+            <TableLine
+              key={`${id}${usage.opened_at}`}
+              elements={[
+                index.toString(),
+                timeUsed(usage.opened_at, usage.closed_at).toString(),
+                usage.total_spent.toString(),
+              ]}
+              onClick={() => {}}
+            />
+          ))}
+        </tbody>
+      </table>
     </>
   );
 };

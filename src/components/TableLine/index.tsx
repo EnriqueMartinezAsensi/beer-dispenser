@@ -2,7 +2,7 @@ import { StyledTableLine } from "./TableLine.styled";
 
 type TableLineProps = {
   elements: string[];
-  onClick: () => void;
+  onClick?: () => void;
 };
 
 const TableLine = ({ elements, onClick }: TableLineProps) => {
