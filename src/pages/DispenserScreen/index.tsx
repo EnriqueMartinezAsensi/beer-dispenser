@@ -1,6 +1,7 @@
 import { useParams } from "react-router";
 import { manageDispenser } from "../../api/apiDispenser";
 import { useState } from "react";
+import { ButtonWrapper, DispenserScreenButton, DispenserScreenTittle } from "./DispenserScreen.styled";
 
 const DispenserScreen = () => {
   const { id } = useParams();
@@ -37,10 +38,12 @@ const DispenserScreen = () => {
 
   return (
     <>
-      <div>DISPENSER SCREEN: {id} </div>
-      <button onMouseDown={handleMouseDown} onMouseUp={handleMouseUp} disabled={loading}>
-        {loading ? "Processing..." : "Dispense"}
-      </button>
+      <DispenserScreenTittle>DISPENSER SCREEN: {id} </DispenserScreenTittle>
+      <ButtonWrapper>
+        <DispenserScreenButton type='button' onMouseDown={handleMouseDown} onMouseUp={handleMouseUp}>
+          {loading ? "Processing..." : "Dispense"}
+        </DispenserScreenButton>
+      </ButtonWrapper>
     </>
   );
 };
