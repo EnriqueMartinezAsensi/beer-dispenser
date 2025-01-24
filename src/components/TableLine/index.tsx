@@ -9,7 +9,7 @@ const TableLine = ({ elements, onClick }: TableLineProps) => {
   return (
     <StyledTableLine onClick={onClick}>
       {elements.map((element, index) => (
-        <span key={`${index}${element}`}>{element}</span>
+        <td key={`${index}${element}`}>{element}</td>
       ))}
     </StyledTableLine>
   );

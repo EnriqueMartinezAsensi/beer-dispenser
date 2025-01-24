@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledTableLine = styled.li`
+export const StyledTableLine = styled.tr`
   display: flex;
   justify-content: space-between;
   align-items: center;

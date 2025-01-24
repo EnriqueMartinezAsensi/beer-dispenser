@@ -32,7 +32,7 @@ const AdminPanel = () => {
             handleAddDispenser();
           }}
         />
-        <ul>
+        <table>
           {dispensers.map((item) => {
             return (
               <TableLine
@@ -42,7 +42,7 @@ const AdminPanel = () => {
               ></TableLine>
             );
           })}
-        </ul>
+        </table>
       </>
     );
   return <div>No tabs were found on the database.</div>;
