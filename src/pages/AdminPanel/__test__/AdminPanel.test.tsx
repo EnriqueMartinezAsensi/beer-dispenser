@@ -3,6 +3,7 @@ import { render, screen, fireEvent, waitFor } from "../../../testing/CustomRende
 import AdminPanel from "..";
 import * as apiDispenser from "../../../api/apiDispenser";
 import { CREATE_DISPENSER_MOCK, GET_ALL_DISPENSERS_MOCK } from "../../../api/__mocks__/apiDispenserMock";
+import userEvent from "@testing-library/user-event";
 
 const mockNavigate = vi.fn();
 const mockCreateDispenser = vi.fn();
@@ -63,8 +64,8 @@ describe("AdminPanel Component", () => {
     const input = screen.getByLabelText(/Flow/);
     const button = screen.getByText("Add Dispenser");
 
-    fireEvent.change(input, { target: { value: 0.25 } }); //Fire event will not work with MUI
-    fireEvent.click(button);
+    await userEvent.type(input, "0.25"); // Simula la entrada de texto
+    await userEvent.click(button); // Simula el clic en el botón
 
     await waitFor(() => {
       expect(mockCreateDispenser).toHaveBeenCalledWith(0.25);
