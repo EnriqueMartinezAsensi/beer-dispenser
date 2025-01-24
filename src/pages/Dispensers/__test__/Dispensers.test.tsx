@@ -43,7 +43,7 @@ describe("Dispensers Component", () => {
     });
   });
 
-  it("calls navigate when a dispenser is clicked", async () => {
+  it("calls navigate when a dispenser is clickedf", async () => {
     vi.spyOn(apiDispenser, "getAllDispensers").mockResolvedValue(GET_ALL_DISPENSERS_MOCK);
 
     render(
