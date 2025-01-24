@@ -7,7 +7,7 @@ const DispenserStats = () => {
   const { id } = useParams();
   const [dispenserUsage, setDispenserUsage] = useState<DispenserUsage>();
 
-  const timeUsed = (start: string, end: string) => {
+  const time = (start: string, end: string) => {
     return Math.abs(new Date(end).getMilliseconds() - new Date(start).getMilliseconds());
   };
 
