@@ -33,15 +33,23 @@ const AdminPanel = () => {
           }}
         />
         <table>
-          {dispensers.map((item) => {
-            return (
-              <TableLine
-                key={item.id}
-                elements={[item.id, item.status]}
-                onClick={() => navigate(`/admin/${item.id}`)}
-              ></TableLine>
-            );
-          })}
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            {dispensers.map((item) => {
+              return (
+                <TableLine
+                  key={item.id}
+                  elements={[item.id, item.status]}
+                  onClick={() => navigate(`/admin/${item.id}`)}
+                ></TableLine>
+              );
+            })}
+          </tbody>
         </table>
       </>
     );
