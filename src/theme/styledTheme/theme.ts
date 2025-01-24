@@ -51,7 +51,7 @@ const theme = {
     },
     navigationBar: {
       fontFamily: karla,
-      fontSize: "24pt",
+      fontSize: "18pt",
       fontWeight: 600,
     },
   },

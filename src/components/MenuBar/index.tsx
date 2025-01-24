@@ -9,19 +9,21 @@ const MenuBar = () => {
   const [isMenuActive, setIsMenuActive] = useState<boolean>(false);
   const { user, logOut } = useUser();
 
+  const closeMenu = () => setIsMenuActive(false);
+
   return (
     <StickyBar>
       <MenuHolder>
-        <BeerIcon size='60' />
         <BurgerMenu onClick={() => setIsMenuActive(!isMenuActive)}>
           <BurgerIcon size='60' active={isMenuActive}></BurgerIcon>
         </BurgerMenu>
+        <BeerIcon size='50' />
         <MenuList>
-          <MenuItemList user={user} logOut={logOut} />
+          <MenuItemList user={user} logOut={logOut} onClick={closeMenu} />
         </MenuList>
         <VerticalMenuHolder $active={isMenuActive}>
           <MemuListVertical $active={isMenuActive}>
-            <MenuItemList user={user} logOut={logOut} />
+            <MenuItemList user={user} logOut={logOut} onClick={closeMenu} />
           </MemuListVertical>
         </VerticalMenuHolder>
       </MenuHolder>
