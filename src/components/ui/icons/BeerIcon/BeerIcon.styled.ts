@@ -5,8 +5,8 @@ type BeerIconProps = {
 };
 
 type BeerProps = {
-  duration?: string;
-  isFilling?: boolean;
+  $duration?: string;
+  $isFilling?: boolean;
 };
 
 const fillBeer = keyframes`
@@ -39,7 +39,7 @@ export const Glass = styled.path`
 
 export const Beer = styled.path<BeerProps>`
   fill: ${({ theme }) => theme.colors.primary.main};
-  animation: ${({ isFilling }) => (isFilling ? fillBeer : emptyBeer)} ease-in-out forwards;
-  animation-duration: ${({ duration }) => duration}s;
+  animation: ${({ $isFilling: isFilling }) => (isFilling ? fillBeer : emptyBeer)} ease-in-out forwards;
+  animation-duration: ${({ $duration: duration }) => duration}s;
   transform-origin: bottom;
 `;

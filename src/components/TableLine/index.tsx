@@ -6,9 +6,9 @@ type TableLineProps = {
   onClick?: () => void;
 };
 
-const TableLine = ({ elements, onClick, isClickable }: TableLineProps) => {
+const TableLine = ({ elements, onClick, isClickable: isclickable }: TableLineProps) => {
   return (
-    <StyledTableLine onClick={onClick} isClickable={isClickable}>
+    <StyledTableLine onClick={onClick} $isClickable={isclickable}>
       {elements.map((element, index) => (
         <TableData key={`${index}${element}`}>{element}</TableData>
       ))}

@@ -1,4 +1,4 @@
-import { LoginContainer, LoginCredentials, LoginForm } from "./LogInPage.styled";
+import { ErrorMessage, LoginContainer, LoginCredentials, LoginForm } from "./LogInPage.styled";
 import { Navigate } from "react-router";
 import useUser from "../../stores/userStore/useUser";
 import Input from "../../components/ui/Input";
@@ -9,13 +9,14 @@ const LogInPage = () => {
   const { user, logIn } = useUser();
   const [userName, setUserName] = useState<string>("admin");
   const [password, setPassword] = useState<string>("admin");
+  const [error, setError] = useState<Error | null>(null);
 
   const submit = () => {
     const user = {
       userName: userName,
       password: password,
     } as UserCredentials;
-    logIn(user);
+    logIn(user).catch((error) => setError(error));
   };
 
   if (user) return <Navigate to={"/admin"}></Navigate>;
@@ -36,6 +37,7 @@ const LogInPage = () => {
           inputName='password'
           type='password'
         />
+        {error ? <ErrorMessage>{error.message}</ErrorMessage> : null}
         <Button type='button' click={submit}>
           Log In
         </Button>
