@@ -4,6 +4,7 @@ import { render } from "../../../../testing/CustomRender/CustomRender";
 import MenuItemList from "..";
 
 const mockLogOut = vi.fn();
+const onClick = vi.fn();
 
 describe("MenuItemList Component", () => {
   beforeEach(() => {
@@ -13,7 +14,7 @@ describe("MenuItemList Component", () => {
   it("renders correct menu items when user is logged in", () => {
     const mockUser = { id: 1, userName: "Test User" };
 
-    render(<MenuItemList user={mockUser} logOut={mockLogOut} />);
+    render(<MenuItemList user={mockUser} logOut={mockLogOut} onClick={onClick} />);
 
     expect(screen.getByText("Beer Taps")).toBeInTheDocument();
     expect(screen.getByText("Administration")).toBeInTheDocument();
@@ -21,7 +22,7 @@ describe("MenuItemList Component", () => {
   });
 
   it("renders correct menu items when user is NOT logged in", () => {
-    render(<MenuItemList user={undefined} logOut={mockLogOut} />);
+    render(<MenuItemList user={undefined} logOut={mockLogOut} onClick={onClick} />);
 
     expect(screen.getByText("Beer Taps")).toBeInTheDocument();
     expect(screen.queryByText("Administration")).not.toBeInTheDocument();
@@ -31,11 +32,22 @@ describe("MenuItemList Component", () => {
   it("calls logOut when Log Out link is clicked", () => {
     const mockUser = { id: 1, userName: "Test User" };
 
-    render(<MenuItemList user={mockUser} logOut={mockLogOut} />);
+    render(<MenuItemList user={mockUser} logOut={mockLogOut} onClick={onClick} />);
 
     const logOutLink = screen.getByText("Log Out");
     logOutLink.click();
 
     expect(mockLogOut).toHaveBeenCalledTimes(1);
+  });
+
+  it("calls onClick when Beer Taps link is clicked", () => {
+    const mockUser = { id: 1, userName: "Test User" };
+
+    render(<MenuItemList user={mockUser} logOut={mockLogOut} onClick={onClick} />);
+
+    const beerTapsLink = screen.getByText("Beer Taps");
+    beerTapsLink.click();
+
+    expect(onClick).toHaveBeenCalledTimes(1);
   });
 });

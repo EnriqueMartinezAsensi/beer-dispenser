@@ -6,7 +6,7 @@ export const GET_ALL_DISPENSERS_MOCK: Dispenser[] = [
 
 export const CREATE_DISPENSER_MOCK: BasicDispenser = { id: "121b67ad-6367-408d-a25b-0245e6510e6f", flow_volume: 0.05 };
 
-export const GET_DISPENSER_USSAGE_MOCK: DispenserUsage = {
+export const GET_DISPENSER_USAGE_MOCK: DispenserUsage = {
   amount: 24.5,
   usages: [
     {

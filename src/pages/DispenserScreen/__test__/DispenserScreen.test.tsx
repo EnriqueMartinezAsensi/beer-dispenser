@@ -2,48 +2,39 @@ import { describe, it, expect, vi, beforeEach } from "vitest";
 import { render, screen, waitFor } from "../../../testing/CustomRender/CustomRender";
 import userEvent from "@testing-library/user-event";
 import DispenserScreen from "..";
-import * as apiDispenser from "../../../api/apiDispenser";
+
+const mockManageDispenser = vi.hoisted(() => vi.fn());
 
 describe("DispenserScreen Component", () => {
-  const mockManageDispenser = vi.fn();
-
   beforeEach(() => {
     vi.mock("react-router", () => ({
       ...vi.importActual("react-router"),
       useParams: () => ({ id: "123" }),
     }));
-
-    vi.spyOn(apiDispenser, "manageDispenser").mockImplementation(mockManageDispenser);
+    vi.mock("../../../api/apiDispenser", () => ({
+      ...vi.importActual("../../../api/apiDispenser"),
+      manageDispenser: mockManageDispenser,
+    }));
   });
 
   afterEach(() => {
     vi.clearAllMocks();
   });
 
-  it("renders the correct title with the dispenser ID", () => {
+  it("renders the correct title with the dispenser ID", async () => {
     render(<DispenserScreen />);
 
-    expect(screen.getByText("DISPENSER SCREEN: 123")).toBeInTheDocument();
+    expect(await screen.findByText("DISPENSER SCREEN: 123")).toBeInTheDocument();
   });
 
-  it("calls manageDispenser with status 'open' on mouse down", async () => {
+  it("calls manageDispenser with status 'open' on mouse down and 'close' on mouse up", async () => {
     render(<DispenserScreen />);
 
-    const button = screen.getByText("Dispense");
-    await userEvent.pointer({ target: button, keys: "[MouseLeft]" });
+    const button = await screen.findByText("Dispense");
+    await userEvent.click(button);
 
     await waitFor(() => {
       expect(mockManageDispenser).toHaveBeenCalledWith({ status: "open", updated_at: expect.any(String) }, "123");
-    });
-  });
-
-  it("calls manageDispenser with status 'close' on mouse up", async () => {
-    render(<DispenserScreen />);
-
-    const button = screen.getByText("Dispense");
-    await userEvent.pointer({ target: button, keys: "[MouseLeft]" });
-
-    await waitFor(() => {
       expect(mockManageDispenser).toHaveBeenCalledWith({ status: "close", updated_at: expect.any(String) }, "123");
     });
   });
