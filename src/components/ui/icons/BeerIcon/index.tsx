@@ -6,8 +6,16 @@ type BeerIconProps = {
 
 const BeerIcon = ({ size }: BeerIconProps) => {
   return (
-    <BeerIconStyled size={size} version='1.1' id='_x32_' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'>
+    <BeerIconStyled
+      size={size}
+      version='1.1'
+      id='_x32_'
+      xmlns='http://www.w3.org/2000/svg'
+      viewBox='0 0 512 512'
+      aria-label='Beer icon'
+    >
       <g>
+        er
         <Glass
           d='M414.094,53.067c-0.921-9.57-2.002-18.279-3.163-25.78c-1.182-7.514-2.422-13.76-3.844-18.752L404.651,0
    h-8.882H107.353l-2.44,8.535c-1.425,4.992-2.662,11.238-3.844,18.752c-3.496,22.457-6.21,56.058-6.219,90.098

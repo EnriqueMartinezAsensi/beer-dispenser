@@ -4,14 +4,13 @@ import { OutletWrapper, PageWrapperContainer } from "./PageWrapper.styled";
 
 const PageWrapper = () => {
   return (
-    <PageWrapperContainer>
-      <ScrollRestoration />
-      <MenuBar />
+    <PageWrapperContainer data-testid='page-wrapper-container'>
+      <ScrollRestoration data-testid='scroll-restoration' />
+      <MenuBar data-testid='menu-bar' />
       <OutletWrapper>
-        <Outlet />
+        <Outlet data-testid='outlet' />
       </OutletWrapper>
     </PageWrapperContainer>
   );
 };
-
 export default PageWrapper;

@@ -14,7 +14,7 @@ const MenuBar = () => {
   return (
     <StickyBar>
       <MenuHolder>
-        <BurgerMenu onClick={() => setIsMenuActive(!isMenuActive)}>
+        <BurgerMenu aria-label='BurgerIcon' onClick={() => setIsMenuActive(!isMenuActive)}>
           <BurgerIcon size='60' active={isMenuActive}></BurgerIcon>
         </BurgerMenu>
         <VerticalMenuHolder $active={isMenuActive}>

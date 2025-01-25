@@ -7,7 +7,15 @@ type BurgerIconProps = {
 
 const BurgerIcon = ({ size, active }: BurgerIconProps) => {
   return (
-    <BurgerSVGContainer $active={active} x='0px' y='0px' width={size} height={size} viewBox='0 0 128 128'>
+    <BurgerSVGContainer
+      $active={active}
+      x='0px'
+      y='0px'
+      width={size}
+      height={size}
+      viewBox='0 0 128 128'
+      aria-label='Burger icon'
+    >
       <path d='M64 14A50 50 0 1 0 64 114A50 50 0 1 0 64 14Z'></path>
       <path
         fill='#333333'
