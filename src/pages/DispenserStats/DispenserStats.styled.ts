@@ -19,3 +19,10 @@ export const GlobalInfoWrapper = styled.div`
 export const DispenserStatsTittle = styled.h3`
   text-align: center;
 `;
+
+export const DispenserStatsHeaderWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+`;

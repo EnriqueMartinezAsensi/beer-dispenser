@@ -1,12 +1,20 @@
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import { manageDispenser } from "../../api/apiDispenser";
-import { BeerIconWrapper, ButtonWrapper, DispenserScreenButton, DispenserScreenTittle } from "./DispenserScreen.styled";
+import {
+  BeerIconWrapper,
+  ButtonWrapper,
+  DispenserScreenButton,
+  DispenserScreenHeaderWrapper,
+  DispenserScreenTittle,
+} from "./DispenserScreen.styled";
 import BeerIcon from "../../components/ui/icons/BeerIcon";
 import { useState } from "react";
+import BackIcon from "../../components/ui/icons/BackIcon";
 
 const DispenserScreen = () => {
   const { id } = useParams();
   const [direction, setDirection] = useState<boolean>(false);
+  const navigate = useNavigate();
 
   const handleMouseDown = async () => {
     if (id) {
@@ -24,7 +32,10 @@ const DispenserScreen = () => {
 
   return (
     <>
-      <DispenserScreenTittle>DISPENSER SCREEN: {id} </DispenserScreenTittle>
+      <DispenserScreenHeaderWrapper>
+        <BackIcon size='45' onClick={() => navigate("/")} />
+        <DispenserScreenTittle>Dispenser Screen: {id} </DispenserScreenTittle>
+      </DispenserScreenHeaderWrapper>
       <ButtonWrapper>
         <DispenserScreenButton
           type='button'

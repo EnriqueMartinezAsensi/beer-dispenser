@@ -24,7 +24,7 @@ describe("DispenserScreen Component", () => {
   it("renders the correct title with the dispenser ID", async () => {
     render(<DispenserScreen />);
 
-    expect(await screen.findByText("DISPENSER SCREEN: 123")).toBeInTheDocument();
+    expect(await screen.findByText("Dispenser Screen: 123")).toBeInTheDocument();
   });
 
   it("calls manageDispenser with status 'open' on mouse down and 'close' on mouse up", async () => {

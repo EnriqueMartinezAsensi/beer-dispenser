@@ -22,3 +22,10 @@ export const ButtonWrapper = styled.div`
 export const BeerIconWrapper = styled.div`
   margin: 2rem;
 `;
+
+export const DispenserScreenHeaderWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+`;
