@@ -11,6 +11,14 @@ export const DispenserScreenButton = styled(Button)`
 `;
 
 export const ButtonWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin: 10px auto;
-  height: 30vh;
+  width: 10rem;
+`;
+
+export const BeerIconWrapper = styled.div`
+  margin: 2rem;
 `;

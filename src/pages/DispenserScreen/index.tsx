@@ -1,38 +1,24 @@
 import { useParams } from "react-router";
 import { manageDispenser } from "../../api/apiDispenser";
+import { BeerIconWrapper, ButtonWrapper, DispenserScreenButton, DispenserScreenTittle } from "./DispenserScreen.styled";
+import BeerIcon from "../../components/ui/icons/BeerIcon";
 import { useState } from "react";
-import { ButtonWrapper, DispenserScreenButton, DispenserScreenTittle } from "./DispenserScreen.styled";
 
 const DispenserScreen = () => {
   const { id } = useParams();
-  const [loading, setLoading] = useState(false);
+  const [direction, setDirection] = useState<boolean>(false);
 
   const handleMouseDown = async () => {
-    if (!id) return;
-
-    setLoading(true);
-    try {
-      console.log(new Date());
-      await manageDispenser({ status: "open", updated_at: new Date().toISOString() }, id);
-      console.log("Dispenser opened");
-    } catch (error) {
-      console.error("Error opening dispenser:", error);
-    } finally {
-      setLoading(false);
+    if (id) {
+      manageDispenser({ status: "open", updated_at: new Date().toISOString() }, id);
+      setDirection(true);
     }
   };
 
   const handleMouseUp = async () => {
-    if (!id) return;
-
-    setLoading(true);
-    try {
-      await manageDispenser({ status: "close", updated_at: new Date().toISOString() }, id);
-      console.log("Dispenser closed");
-    } catch (error) {
-      console.error("Error closing dispenser:", error);
-    } finally {
-      setLoading(false);
+    if (id) {
+      manageDispenser({ status: "close", updated_at: new Date().toISOString() }, id);
+      setDirection(false);
     }
   };
 
@@ -40,9 +26,18 @@ const DispenserScreen = () => {
     <>
       <DispenserScreenTittle>DISPENSER SCREEN: {id} </DispenserScreenTittle>
       <ButtonWrapper>
-        <DispenserScreenButton type='button' onMouseDown={handleMouseDown} onMouseUp={handleMouseUp}>
-          {loading ? "Processing..." : "Dispense"}
+        <DispenserScreenButton
+          type='button'
+          onMouseDown={handleMouseDown}
+          onMouseUp={handleMouseUp}
+          onTouchStart={handleMouseDown}
+          onTouchEnd={handleMouseUp}
+        >
+          Dispense
         </DispenserScreenButton>
+        <BeerIconWrapper>
+          <BeerIcon size='300' duration='5' isFilling={direction}></BeerIcon>
+        </BeerIconWrapper>
       </ButtonWrapper>
     </>
   );

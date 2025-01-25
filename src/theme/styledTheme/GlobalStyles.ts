@@ -15,7 +15,7 @@ const GlobalStyles = createGlobalStyle`
   font-size: ${({ theme }) => theme.text.normal.fontSize};
   line-height: 1.5;
 
-  color-scheme: light dark;
+  
   color: #333333;
   
   font-synthesis: none;

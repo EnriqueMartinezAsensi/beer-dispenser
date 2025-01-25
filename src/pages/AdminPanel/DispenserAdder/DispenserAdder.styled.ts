@@ -20,4 +20,5 @@ export const DispenserFormWrapper = styled.div`
 export const DispenserTitle = styled.h1`
   margin: 10px;
   text-align: center;
+  color: ${({ theme }) => theme.colors.primary.text};
 `;

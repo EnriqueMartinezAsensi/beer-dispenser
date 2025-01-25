@@ -6,3 +6,7 @@ export const StyledAdminTable = styled.table`
   border-collapse: collapse;
   table-layout: fixed;
 `;
+export const DispensersSubTile = styled.h2`
+  text-align: center;
+  color: ${({ theme }) => theme.colors.primary.text};
+`;

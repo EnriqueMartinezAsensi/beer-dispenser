@@ -3,7 +3,7 @@ import { useNavigate } from "react-router";
 import { getAllDispensers, createDispenser } from "../../api/apiDispenser";
 import TableLine from "../../components/TableLine";
 import DispenserAdder from "./DispenserAdder";
-import { StyledAdminTable } from "./AdminPanel.styled";
+import { DispensersSubTile, StyledAdminTable } from "./AdminPanel.styled";
 
 const AdminPanel = () => {
   const [dispensers, setDispensers] = useState<Dispenser[]>([]);
@@ -32,6 +32,7 @@ const AdminPanel = () => {
           handleAddDispenser();
         }}
       />
+      <DispensersSubTile>Dispensers</DispensersSubTile>
       <StyledAdminTable>
         <thead>
           <tr>

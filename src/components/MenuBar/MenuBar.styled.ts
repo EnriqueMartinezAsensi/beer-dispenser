@@ -24,7 +24,8 @@ export const MenuHolder = styled.div`
   flex-flow: row;
   justify-content: space-between;
   align-items: center;
-  max-width: 80%;
+  width: 80%;
+  max-width: 1200px;
   min-width: 660px;
   height: 100%;
   margin: auto;

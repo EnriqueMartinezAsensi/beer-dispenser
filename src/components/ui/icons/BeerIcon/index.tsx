@@ -2,9 +2,11 @@ import { Beer, BeerIconStyled, Glass } from "./BeerIcon.styled";
 
 type BeerIconProps = {
   size?: string;
+  duration?: string;
+  isFilling?: boolean;
 };
 
-const BeerIcon = ({ size }: BeerIconProps) => {
+const BeerIcon = ({ size, duration = "0", isFilling = true }: BeerIconProps) => {
   return (
     <BeerIconStyled
       size={size}
@@ -34,6 +36,8 @@ const BeerIcon = ({ size }: BeerIconProps) => {
    C393.607,127.202,393.373,137.006,392.846,146.475z'
         />
         <Beer
+          duration={duration}
+          isFilling={isFilling}
           d='M201.391,136.338c1.004,31.586,7.584,61.863,13.954,91.146c6.049,27.842,11.755,54.309,12.82,81.483h-8.869
    c-1.645-27.174-10.501-53.635-19.86-81.483c-9.834-29.283-19.997-59.56-21.552-91.146c-0.464-9.45-0.661-19.019-0.654-28.448
    h-35.24c-0.194,12.246-0.023,24.865,0.664,37.271c1.758,31.592,13.25,61.863,24.361,91.146c11.716,30.858,22.776,60,22.776,90.312
