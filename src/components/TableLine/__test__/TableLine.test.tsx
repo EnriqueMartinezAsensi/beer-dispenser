@@ -8,7 +8,13 @@ describe("TableLine Component", () => {
   it("renders the table line with the provided elements", () => {
     const elements = ["Item 1", "Item 2", "Item 3"];
 
-    render(<TableLine elements={elements} onClick={mockOnClick} />);
+    render(
+      <table>
+        <tbody>
+          <TableLine elements={elements} onClick={mockOnClick} isClickable={true} />
+        </tbody>
+      </table>
+    );
 
     elements.forEach((element) => {
       expect(screen.getByText(element)).toBeInTheDocument();
@@ -18,7 +24,13 @@ describe("TableLine Component", () => {
   it("calls onClick when the table line is clicked", () => {
     const elements = ["Click Me"];
 
-    render(<TableLine elements={elements} onClick={mockOnClick} />);
+    render(
+      <table>
+        <tbody>
+          <TableLine elements={elements} onClick={mockOnClick} isClickable={true} />
+        </tbody>
+      </table>
+    );
 
     const tableLine = screen.getByText("Click Me");
     fireEvent.click(tableLine);

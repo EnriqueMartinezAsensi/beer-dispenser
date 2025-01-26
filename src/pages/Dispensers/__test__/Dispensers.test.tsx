@@ -3,15 +3,19 @@ import { render, screen, waitFor } from "../../../testing/CustomRender/CustomRen
 import Dispensers from "..";
 import * as apiDispenser from "../../../api/apiDispenser";
 import { GET_ALL_DISPENSERS_MOCK } from "../../../api/__mocks__/apiDispenserMock";
+import userEvent from "@testing-library/user-event";
 
 const mockNavigate = vi.fn();
 const mockGetAllDispensers = vi.hoisted(() => vi.fn());
 
 describe("Dispensers Component", () => {
   beforeEach(() => {
-    vi.mock("react-router", () => ({ ...vi.importActual("react-router"), useNavigate: () => mockNavigate }));
-    vi.mock("../../../api/apiDispenser", () => ({
-      ...vi.importActual("../../../api/apiDispenser"),
+    vi.mock("react-router", async () => ({
+      ...(await vi.importActual("react-router")),
+      useNavigate: () => mockNavigate,
+    }));
+    vi.mock("../../../api/apiDispenser", async () => ({
+      ...(await vi.importActual("../../../api/apiDispenser")),
       getAllDispensers: mockGetAllDispensers,
     }));
   });
@@ -26,7 +30,7 @@ describe("Dispensers Component", () => {
     await waitFor(async () => expect(await screen.findByText("There are no dispensers yet!")).toBeInTheDocument());
   });
 
-  /* it("renders a list of dispensers", async () => {
+  /*   it("renders a list of dispensers", async () => {
     vi.spyOn(apiDispenser, "getAllDispensers").mockResolvedValue(GET_ALL_DISPENSERS_MOCK);
 
     render(<Dispensers />);
@@ -36,7 +40,7 @@ describe("Dispensers Component", () => {
         expect(await screen.findByText(dispenser.id)).toBeInTheDocument();
       });
     });
-  });
+  }); */
 
   it("calls navigate when a dispenser is clicked", async () => {
     vi.spyOn(apiDispenser, "getAllDispensers").mockResolvedValue(GET_ALL_DISPENSERS_MOCK);
@@ -46,9 +50,9 @@ describe("Dispensers Component", () => {
     await waitFor(() => {
       GET_ALL_DISPENSERS_MOCK.forEach(async (dispenser) => {
         const dispenserElement = await screen.findByText(dispenser.id);
-        dispenserElement.click();
+        await userEvent.click(dispenserElement);
         expect(mockNavigate).toHaveBeenCalledWith(`/${dispenser.id}`);
       });
     });
-  }); */
+  });
 });

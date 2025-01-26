@@ -3,7 +3,7 @@ import { render, screen, waitFor } from "../../../testing/CustomRender/CustomRen
 import userEvent from "@testing-library/user-event";
 import DispenserScreen from "..";
 
-const mockManageDispenser = vi.hoisted(() => vi.fn());
+const mockManageDispenser = vi.hoisted(() => vi.fn().mockResolvedValue({}));
 
 describe("DispenserScreen Component", () => {
   beforeEach(() => {
@@ -28,6 +28,8 @@ describe("DispenserScreen Component", () => {
   });
 
   it("calls manageDispenser with status 'open' on mouse down and 'close' on mouse up", async () => {
+    mockManageDispenser.mockRejectedValueOnce({});
+
     render(<DispenserScreen />);
 
     const button = await screen.findByText("Dispense");
@@ -47,9 +49,9 @@ describe("DispenserScreen Component", () => {
     const button = screen.getByText("Dispense");
     await userEvent.click(button, {});
 
-    await waitFor(() => {
+    await waitFor(async () => {
       expect(mockManageDispenser).toHaveBeenCalled();
-      expect(screen.getByText("Dispense")).toBeInTheDocument();
+      expect(await screen.findByText("Network error")).toBeInTheDocument();
     });
   });
 });
