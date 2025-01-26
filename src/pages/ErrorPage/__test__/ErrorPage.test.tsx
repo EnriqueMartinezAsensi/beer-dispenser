@@ -21,7 +21,7 @@ describe("ErrorPage Component", () => {
   it("calls navigate when Go back button is clicked", () => {
     render(<ErrorPage />);
 
-    const goBackButton = screen.getByText("Go back!");
+    const goBackButton = screen.getByText(/Go back!/);
     goBackButton.click();
 
     expect(mockNavigate).toHaveBeenCalledWith("/");

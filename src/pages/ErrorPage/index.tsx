@@ -1,12 +1,20 @@
 import { useNavigate } from "react-router";
-import { ErrorWrapper, GoBack } from "./ErrorPage.styled";
+import { ErrorWrapper } from "./ErrorPage.styled";
+import Button from "../../components/ui/Button";
 
 const ErrorPage = () => {
   const navigate = useNavigate();
+
+  const goToHome = () => {
+    navigate("/");
+  };
+
   return (
     <ErrorWrapper>
       <h1>Error</h1>
-      <GoBack onClick={() => navigate("/")}>Go back!</GoBack>
+      <Button type='button' click={goToHome} onTouchStart={goToHome}>
+        Go back!
+      </Button>
     </ErrorWrapper>
   );
 };
