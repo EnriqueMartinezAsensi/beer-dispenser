@@ -1,5 +1,5 @@
 import { describe, it, vi, expect, beforeEach } from "vitest";
-import { render, screen, waitFor } from "../../../testing/CustomRender/CustomRender";
+import { fireEvent, render, screen, waitFor } from "../../../testing/CustomRender/CustomRender";
 import Dispensers from "..";
 import * as apiDispenser from "../../../api/apiDispenser";
 import { GET_ALL_DISPENSERS_MOCK } from "../../../api/__mocks__/apiDispenserMock";
@@ -30,29 +30,28 @@ describe("Dispensers Component", () => {
     await waitFor(async () => expect(await screen.findByText("There are no dispensers yet!")).toBeInTheDocument());
   });
 
-  /*   it("renders a list of dispensers", async () => {
+  it("renders a list of dispensers when data is available", async () => {
     vi.spyOn(apiDispenser, "getAllDispensers").mockResolvedValue(GET_ALL_DISPENSERS_MOCK);
 
     render(<Dispensers />);
 
     await waitFor(() => {
-      GET_ALL_DISPENSERS_MOCK.forEach(async (dispenser) => {
-        expect(await screen.findByText(dispenser.id)).toBeInTheDocument();
+      GET_ALL_DISPENSERS_MOCK.forEach((dispenser) => {
+        expect(screen.getByText(dispenser.id)).toBeInTheDocument();
       });
     });
-  }); */
+  });
 
   it("calls navigate when a dispenser is clicked", async () => {
     vi.spyOn(apiDispenser, "getAllDispensers").mockResolvedValue(GET_ALL_DISPENSERS_MOCK);
 
     render(<Dispensers />);
 
-    await waitFor(() => {
-      GET_ALL_DISPENSERS_MOCK.forEach(async (dispenser) => {
-        const dispenserElement = await screen.findByText(dispenser.id);
-        await userEvent.click(dispenserElement);
-        expect(mockNavigate).toHaveBeenCalledWith(`/${dispenser.id}`);
-      });
+    await waitFor(async () => {
+      const tableLine = await screen.findByText(GET_ALL_DISPENSERS_MOCK[0].id);
+      fireEvent.click(tableLine);
     });
+
+    expect(mockNavigate).toHaveBeenCalledWith(`/${GET_ALL_DISPENSERS_MOCK[0].id}`);
   });
 });
