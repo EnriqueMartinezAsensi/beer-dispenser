@@ -11,9 +11,12 @@ const mockGetAllDispensers = vi.hoisted(() => vi.fn());
 
 describe("AdminPanel Component", () => {
   beforeEach(() => {
-    vi.mock("react-router", () => ({ ...vi.importActual("react-router"), useNavigate: () => mockNavigate }));
-    vi.mock("../../../api/apiDispenser", () => ({
-      ...vi.importActual("../../../api/apiDispenser"),
+    vi.mock("react-router", async () => ({
+      ...(await vi.importActual("react-router")),
+      useNavigate: () => mockNavigate,
+    }));
+    vi.mock("../../../api/apiDispenser", async () => ({
+      ...(await vi.importActual("../../../api/apiDispenser")),
       createDispenser: mockCreateDispenser,
       getAllDispensers: mockGetAllDispensers,
     }));

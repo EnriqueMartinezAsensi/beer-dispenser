@@ -36,7 +36,7 @@ body {
 #root {
   width: 100%;
   margin: 0 auto;
-  height: 100vh;
+  min-height: 100vh;
   background-color: #eee;
 }
 `;

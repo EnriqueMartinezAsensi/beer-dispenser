@@ -7,12 +7,12 @@ const mockManageDispenser = vi.hoisted(() => vi.fn());
 
 describe("DispenserScreen Component", () => {
   beforeEach(() => {
-    vi.mock("react-router", () => ({
-      ...vi.importActual("react-router"),
+    vi.mock("react-router", async () => ({
+      ...(await vi.importActual("react-router")),
       useParams: () => ({ id: "123" }),
     }));
-    vi.mock("../../../api/apiDispenser", () => ({
-      ...vi.importActual("../../../api/apiDispenser"),
+    vi.mock("../../../api/apiDispenser", async () => ({
+      ...(await vi.importActual("../../../api/apiDispenser")),
       manageDispenser: mockManageDispenser,
     }));
   });

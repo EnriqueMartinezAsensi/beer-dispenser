@@ -8,15 +8,17 @@ const mockGetDispenserUsage = vi.hoisted(() => vi.fn());
 
 describe("DispenserStats Component", () => {
   beforeEach(() => {
-    vi.mock("react-router", () => ({
-      ...vi.importActual("react-router"),
+    vi.mock("react-router", async () => ({
+      ...(await vi.importActual("react-router")),
       useParams: () => ({ id: "123" }),
     }));
-    vi.mock("../../../api/apiDispenser", () => ({
-      ...vi.importActual("../../../api/apiDispenser"),
+    vi.mock("../../../api/apiDispenser", async () => ({
+      ...(await vi.importActual("../../../api/apiDispenser")),
       getDispenserUsage: mockGetDispenserUsage,
     }));
   });
+
+  afterEach(() => vi.clearAllMocks());
 
   it("fetches and displays dispenser usage data for the given ID", async () => {
     vi.spyOn(apiDispenser, "getDispenserUsage").mockResolvedValue(GET_DISPENSER_USAGE_MOCK);

@@ -1,15 +1,15 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
-import { render, screen /* waitFor */ } from "../../../testing/CustomRender/CustomRender";
+import { render, screen, waitFor } from "../../../testing/CustomRender/CustomRender";
 import LogInPage from "..";
-/* import * as userStore from "../../../stores/userStore/useUser";
-import userEvent from "@testing-library/user-event"; */
+import * as userStore from "../../../stores/userStore/useUser";
+import userEvent from "@testing-library/user-event";
 
-const mockLogIn = vi.hoisted(() => vi.fn());
+const mockLogIn = vi.hoisted(() => vi.fn().mockResolvedValue({ id: 1, userName: "admin" }));
 
 describe("LogInPage Component", () => {
   beforeEach(() => {
-    vi.mock("../../stores/userStore/useUser", () => ({
-      ...vi.importActual("../../stores/userStore/useUser"),
+    vi.mock("../../stores/userStore/useUser", async () => ({
+      ...(await vi.importActual("../../stores/userStore/useUser")),
       logIn: mockLogIn,
     }));
   });
@@ -24,8 +24,8 @@ describe("LogInPage Component", () => {
     expect(await screen.findByText(/Log In/)).toBeInTheDocument();
   });
 
-  /* it("logs in when valid credentials are provided", async () => {
-    vi.spyOn(userStore, "default").mockReturnValue({ user: { id: 1, userName: "admin" } });
+  it("logs in when valid credentials are provided", async () => {
+    vi.spyOn(userStore, "default").mockReturnValue({ user: undefined, logIn: mockLogIn });
 
     render(<LogInPage />);
 
@@ -43,5 +43,5 @@ describe("LogInPage Component", () => {
         password: "admin",
       });
     });
-  }); */
+  });
 });
