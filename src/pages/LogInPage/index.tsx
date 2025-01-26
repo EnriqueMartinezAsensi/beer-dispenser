@@ -1,9 +1,10 @@
-import { ErrorMessage, LoginContainer, LoginCredentials, LoginForm } from "./LogInPage.styled";
+import { LoginContainer, LoginCredentials, LoginForm } from "./LogInPage.styled";
 import { Navigate } from "react-router";
 import useUser from "../../stores/userStore/useUser";
 import Input from "../../components/ui/Input";
 import Button from "../../components/ui/Button";
 import { useState } from "react";
+import ErrorMessage from "../../components/ui/ErrorMessage";
 
 const LogInPage = () => {
   const { user, logIn } = useUser();
@@ -37,7 +38,7 @@ const LogInPage = () => {
           inputName='password'
           type='password'
         />
-        {error ? <ErrorMessage>{error.message}</ErrorMessage> : null}
+        <ErrorMessage message={error?.message} />
         <Button type='button' click={submit}>
           Log In
         </Button>

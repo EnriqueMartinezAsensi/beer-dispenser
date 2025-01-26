@@ -4,19 +4,24 @@ import { getAllDispensers, createDispenser } from "../../api/apiDispenser";
 import TableLine from "../../components/TableLine";
 import DispenserAdder from "./DispenserAdder";
 import { DispensersSubTile, StyledAdminTable } from "./AdminPanel.styled";
+import ErrorMessage from "../../components/ui/ErrorMessage";
 
 const AdminPanel = () => {
   const [dispensers, setDispensers] = useState<Dispenser[]>([]);
   const [flow, setFlow] = useState<string>("");
+  const [error, setError] = useState<Error | null>(null);
   const navigate = useNavigate();
 
   const getData = () =>
     getAllDispensers()
       .then((data) => setDispensers(data))
-      .catch((error) => console.error(error));
+      .catch((error) => setError(error));
 
   const handleAddDispenser = () => {
-    createDispenser(Number(flow)).then(() => getData());
+    createDispenser(Number(flow))
+      .then(() => getData())
+      .catch((error) => setError(error))
+      .finally(() => setFlow(""));
   };
 
   useEffect(() => {
@@ -32,6 +37,7 @@ const AdminPanel = () => {
           handleAddDispenser();
         }}
       />
+      <ErrorMessage message={error?.message} />
       <DispensersSubTile>Dispensers</DispensersSubTile>
       <StyledAdminTable>
         <thead>

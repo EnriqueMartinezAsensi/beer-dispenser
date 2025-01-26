@@ -1,7 +1,9 @@
 import { RouteObject } from "react-router-dom";
+//-----Layouts-----
+import MainLayout from "../layouts/MainLayout";
 
 //-----Free accsess elements-----
-import PageWrapper from "../components/PageWrapper";
+
 import ErrorPage from "../pages/ErrorPage";
 import Dispensers from "../pages/Dispensers";
 import DispenserScreen from "../pages/DispenserScreen";
@@ -12,11 +14,10 @@ import ProtectedPage from "../pages/ProtectedPage";
 import AdminPanel from "../pages/AdminPanel";
 import DispenserStats from "../pages/DispenserStats";
 
-
 const routes: RouteObject[] = [
   {
     path: "/",
-    element: <PageWrapper />,
+    element: <MainLayout />,
     errorElement: <ErrorPage />,
     children: [
       {

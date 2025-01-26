@@ -24,9 +24,3 @@ export const LoginCredentials = styled.p`
   font-style: italic;
   color: ${({ theme }) => theme.colors.primary};
 `;
-
-export const ErrorMessage = styled.h5`
-  margin: 0px;
-  padding: 0px;
-  color: red;
-`;

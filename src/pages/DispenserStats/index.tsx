@@ -16,7 +16,7 @@ const DispenserStats = () => {
   const navigate = useNavigate();
 
   const timeUsed = (start: string, end: string) => {
-    return Math.abs(new Date(end).getMilliseconds() - new Date(start).getMilliseconds());
+    return Math.abs((new Date(end).getMilliseconds() - new Date(start).getMilliseconds()) / 100);
   };
 
   useEffect(() => {

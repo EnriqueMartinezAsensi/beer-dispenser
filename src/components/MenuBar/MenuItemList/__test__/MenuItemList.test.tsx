@@ -12,6 +12,8 @@ describe("MenuItemList Component", () => {
     vi.clearAllMocks();
   });
 
+  afterEach(() => vi.clearAllMocks());
+
   it("renders correct menu items when user is logged in", () => {
     const mockUser = { id: 1, userName: "Test User" };
 
