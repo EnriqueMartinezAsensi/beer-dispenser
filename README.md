@@ -46,7 +46,9 @@ Some may think, why not use React Query(TanStack Query)? Well, the app will hand
 ## Design and creation process
 
 First, I scribbled down the first ideas while reading the requisite document, and playing with the backend, then scribbled the different views of the web while transforming the document to a pseudo user stories and then the routes were thought out:
+
 [Excalidraw's file.](https://excalidraw.com/#json=RQylpAXpP6GsceDqOrrfF,_UwfuUB23uYXN06ZOWj6Hw)
+
 Then the project structure was laid out:
 
 - Folders are created following clear paths (api, components, pages, etc)
@@ -59,11 +61,6 @@ Then the project structure was laid out:
 At this point and as tests were added, a final design was needed, there so a basic Figma file was created containing a very simple view of the landing using a mobile first design paradigm.
 
 [Figma file.](https://www.figma.com/design/tde5LuQW3LesDqqIDhoSxX/Beer-dispenser?node-id=0-1&t=BsUTKoLMnb5QeSmP-1)
+
 After some theming the design is implemented.
 Then testing is developed while slowly improving the small issues found on UX while using and trying the app, until finishing.
-
-## The struggles...
-
-You never know how many components you need for an app until it is done. That has not been much of a problem, but having a bit more instinct is always needed.
-
-Vitest is a good testing library, but not the greatest. Testing has been a struggle, and I'm very happy I've been able to take it as far as I have.
