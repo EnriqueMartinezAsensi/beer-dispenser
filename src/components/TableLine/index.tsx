@@ -1,15 +1,16 @@
-import { StyledTableLine } from "./TableLine.styled";
+import { StyledTableLine, TableData } from "./TableLine.styled";
 
 type TableLineProps = {
   elements: string[];
+  isClickable: boolean;
   onClick?: () => void;
 };
 
-const TableLine = ({ elements, onClick }: TableLineProps) => {
+const TableLine = ({ elements, onClick, isClickable: isclickable }: TableLineProps) => {
   return (
-    <StyledTableLine onClick={onClick}>
+    <StyledTableLine onClick={onClick} $isClickable={isclickable}>
       {elements.map((element, index) => (
-        <td key={`${index}${element}`}>{element}</td>
+        <TableData key={`${index}${element}`}>{element}</TableData>
       ))}
     </StyledTableLine>
   );

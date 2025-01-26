@@ -3,8 +3,8 @@ import { logIn, logOut } from "../../api/apiUser";
 
 type UserStateType = {
   user?: User;
-  logIn: (user: UserCredentials) => void;
-  logOut: () => void;
+  logIn: (user: UserCredentials) => Promise<void>;
+  logOut: () => Promise<void>;
 };
 
 const useUser = create<UserStateType>(
@@ -12,11 +12,11 @@ const useUser = create<UserStateType>(
     user: undefined,
 
     logIn: (user: UserCredentials) => {
-      logIn(user).then((user) => set({ user }));
+      return logIn(user).then((user) => set({ user }));
     },
 
     logOut: () => {
-      logOut().then(() => set({ user: undefined }));
+      return logOut().then(() => set({ user: undefined }));
     },
   })
 );

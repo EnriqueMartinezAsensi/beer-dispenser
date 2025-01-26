@@ -1,21 +1,23 @@
 import { createTheme } from "@mui/material/styles";
-import { orange } from "@mui/material/colors";
+import { red } from "@mui/material/colors";
+const karla = "Karla, source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace";
 
 // A custom theme for this app
 const theme = createTheme({
   spacing: [0, 4, 8, 16, 32, 64],
   typography: {
-    fontSize: 20,
+    fontSize: 14,
+    fontFamily: karla,
   },
   palette: {
     primary: {
-      main: "#DC0019",
+      main: "#feca0a",
     },
     secondary: {
-      main: "#00DCC3",
+      main: "#BDBDBD",
     },
     error: {
-      main: orange.A400,
+      main: red.A400,
     },
   },
   shape: {

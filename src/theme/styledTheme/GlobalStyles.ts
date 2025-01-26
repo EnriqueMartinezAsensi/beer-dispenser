@@ -11,14 +11,12 @@ const GlobalStyles = createGlobalStyle`
 }
 
 :root {
-  font-family: ${({theme}) => theme.text.normal.fontFamily};
-  font-size: ${({theme}) => theme.text.normal.fontSize};
+  font-family: ${({ theme }) => theme.text.normal.fontFamily};
+  font-size: ${({ theme }) => theme.text.normal.fontSize};
   line-height: 1.5;
 
-  color-scheme: light dark;
-  color: #242424;
-  background-color: rgba(255, 255, 255, 0.87);
-
+  
+  color: #333333;
   
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -32,12 +30,15 @@ body {
   place-items: start;
   min-width: 350px;
   min-height: 100vh;
+  color: #333333;
 }
 
 #root {
   width: 100%;
   margin: 0 auto;
+  min-height: 100vh;
+  background-color: #eee;
 }
-`
+`;
 
 export default GlobalStyles;

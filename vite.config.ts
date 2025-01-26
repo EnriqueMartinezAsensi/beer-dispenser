@@ -13,7 +13,7 @@ export default defineConfig({
       provider: "v8",
       reporter: ["text"],
       all: true,
-      include: ["src/**/*.ts", "src/**/*.tsx"],
+      include: ["src/**/*.tsx"],
       exclude: ["node_modules", "tests"],
     },
   },

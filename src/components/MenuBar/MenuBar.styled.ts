@@ -12,25 +12,29 @@ export const StickyBar = styled.div`
   background-color: ${({ theme }) => theme.colors.common.white};
   position: sticky;
   overflow: hidden;
-  z-index: 1;
+  z-index: 2;
   width: 100%;
   height: 80px;
   top: 0px;
+  border-bottom: 5px solid ${({ theme }) => theme.colors.primary.main};
 `;
 
 export const MenuHolder = styled.div`
   display: flex;
   flex-flow: row;
-  justify-content: start;
+  justify-content: space-between;
   align-items: center;
-  max-width: 1027px;
+  width: 80%;
+  max-width: 1200px;
   min-width: 660px;
   height: 100%;
   margin: auto;
   z-index: 0;
   @media (max-width: ${({ theme }) => theme.media.first}px) {
     min-width: 0;
+    max-width: 100%;
     width: 100%;
+    justify-content: space-between;
   }
 `;
 export const MenuList = styled.ul`

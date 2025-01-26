@@ -3,6 +3,7 @@ import Button from "../../components/ui/Button";
 
 export const DispenserScreenTittle = styled.h3`
   text-align: center;
+  text-wrap: balance;
 `;
 
 export const DispenserScreenButton = styled(Button)`
@@ -10,7 +11,21 @@ export const DispenserScreenButton = styled(Button)`
 `;
 
 export const ButtonWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin: 10px auto;
-  height: 30vh;
-  width: 400px;
+  width: 10rem;
+`;
+
+export const BeerIconWrapper = styled.div`
+  margin: 2rem;
+`;
+
+export const DispenserScreenHeaderWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
 `;

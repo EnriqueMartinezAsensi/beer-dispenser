@@ -1,11 +1,18 @@
 import styled from "styled-components";
 
-export const StyledTableLine = styled.tr`
+type StyledTableLineProps = {
+  $isClickable: boolean;
+};
+
+export const StyledTableLine = styled.tr<StyledTableLineProps>`
   text-align: center;
-  padding: 5px 10px;
-  border-bottom: 1px solid #000;
-  cursor: pointer;
+  border-top: 1px solid ${({ theme }) => theme.colors.common.grey};
+  cursor: ${({ $isClickable: isClickable }) => (isClickable ? "pointer" : "default")};
   &:hover {
-    background-color: #f0f0f0;
+    background-color: ${({ theme, $isClickable: isClickable }) => (isClickable ? theme.colors.secondary.main : "none")};
   }
+`;
+
+export const TableData = styled.td`
+  padding: 1rem;
 `;

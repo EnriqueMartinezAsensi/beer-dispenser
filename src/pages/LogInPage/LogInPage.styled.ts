@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const LoginContainer = styled.div`
-  min-height: 100dvh;
+  min-height: 80dvh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -15,4 +15,18 @@ export const LoginForm = styled.form`
   flex-direction: column;
   gap: 8px;
   align-items: flex-start;
+`;
+
+export const LoginCredentials = styled.p`
+  margin: 0.5rem auto;
+  text-align: center;
+  font-size: 1.2rem;
+  font-style: italic;
+  color: ${({ theme }) => theme.colors.primary};
+`;
+
+export const ErrorMessage = styled.h5`
+  margin: 0px;
+  padding: 0px;
+  color: red;
 `;
