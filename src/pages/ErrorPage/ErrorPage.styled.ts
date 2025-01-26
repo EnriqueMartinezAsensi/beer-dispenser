@@ -6,3 +6,11 @@ export const ErrorWrapper = styled.div`
   align-items: center;
   height: 100vh;
 `;
+
+export const GoBack = styled.h3`
+  cursor: pointer;
+  border-radius: ${({ theme }) => theme.radiuses.medium}px;
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.common.grey};
+  }
+`;
