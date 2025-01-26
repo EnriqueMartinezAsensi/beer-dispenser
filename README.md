@@ -64,6 +64,6 @@ Then testing is developed while slowly improving the small issues found on UX wh
 
 ## The struggles...
 
-You never know how many components you need for an app until it is done. That has not been much a problem, but having a bit more instinct is always needed.
+You never know how many components you need for an app until it is done. That has not been much of a problem, but having a bit more instinct is always needed.
 
 Vitest is a good testing library, but not the greatest. Testing has been a struggle, and I'm very happy I've been able to take it as far as I have.
