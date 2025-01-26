@@ -1,8 +1,8 @@
 import { Outlet, ScrollRestoration } from "react-router";
-import MenuBar from "../MenuBar";
-import { OutletWrapper, PageWrapperContainer } from "./PageWrapper.styled";
+import MenuBar from "../../components/MenuBar/index";
+import { OutletWrapper, PageWrapperContainer } from "./MainLayout.styled";
 
-const PageWrapper = () => {
+const MainLayout = () => {
   return (
     <PageWrapperContainer data-testid='page-wrapper-container'>
       <ScrollRestoration data-testid='scroll-restoration' />
@@ -13,4 +13,4 @@ const PageWrapper = () => {
     </PageWrapperContainer>
   );
 };
-export default PageWrapper;
+export default MainLayout;
