@@ -8,9 +8,19 @@ type ButtonProps = {
   onMouseUp?: React.MouseEventHandler<HTMLButtonElement>;
   onTouchStart?: React.TouchEventHandler<HTMLButtonElement>;
   onTouchEnd?: React.TouchEventHandler<HTMLButtonElement>;
+  onMouseLeave?: React.MouseEventHandler<HTMLButtonElement>;
 };
 
-const Button = ({ type, children, click, onMouseDown, onMouseUp, onTouchStart, onTouchEnd }: ButtonProps) => {
+const Button = ({
+  type,
+  children,
+  click,
+  onMouseDown,
+  onMouseUp,
+  onTouchStart,
+  onTouchEnd,
+  onMouseLeave,
+}: ButtonProps) => {
   return (
     <ButtonMui
       type={type}
@@ -22,6 +32,7 @@ const Button = ({ type, children, click, onMouseDown, onMouseUp, onTouchStart, o
       onMouseUp={onMouseUp}
       onTouchStart={onTouchStart}
       onTouchEnd={onTouchEnd}
+      onMouseLeave={onMouseLeave}
     >
       {children}
     </ButtonMui>

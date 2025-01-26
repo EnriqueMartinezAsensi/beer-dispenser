@@ -21,6 +21,48 @@ describe("DispenserScreen Component", () => {
     vi.clearAllMocks();
   });
 
+  it("detects a mobile device", () => {
+    vi.stubGlobal(
+      "matchMedia",
+      vi.fn((query) => ({
+        matches: query === "(pointer: coarse)",
+        media: query,
+        onchange: null,
+        addListener: vi.fn(),
+        removeListener: vi.fn(),
+        addEventListener: vi.fn(),
+        removeEventListener: vi.fn(),
+        dispatchEvent: vi.fn(),
+      }))
+    );
+
+    const isMobile = window.matchMedia("(pointer: coarse)").matches;
+    expect(isMobile).toBe(true);
+  });
+
+  it("detects a laptop", () => {
+    vi.stubGlobal(
+      "matchMedia",
+      vi.fn((query) => ({
+        matches: query === "(pointer: fine)",
+        media: query,
+        onchange: null,
+        addListener: vi.fn(),
+        removeListener: vi.fn(),
+        addEventListener: vi.fn(),
+        removeEventListener: vi.fn(),
+        dispatchEvent: vi.fn(),
+      }))
+    );
+
+    const isMobile = window.matchMedia("(pointer: coarse)").matches;
+    expect(isMobile).toBe(false);
+  });
+
+  afterEach(() => {
+    vi.clearAllMocks();
+  });
+
   it("renders the correct title with the dispenser ID", async () => {
     render(<DispenserScreen />);
 
